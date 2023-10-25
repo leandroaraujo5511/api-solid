@@ -1,6 +1,6 @@
 import { CheckIn } from '@prisma/client'
 import { CheckInRepository } from '@/repositories/check-ins-repositorys'
-import { ResourceNotFoundError } from './errors/resource-not-found-error'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 
 interface ValidateCheckInUseCaseRequest {
   checkInId: string

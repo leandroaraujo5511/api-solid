@@ -54,3 +54,13 @@ model Gym {
 
   @@map("gyms")
 }
+
+model Consultancy {
+  id       String  @id @default(uuid())
+  code     String  @unique
+  name     String
+  domain   String
+  pathLogo String?
+
+  @@map("consultacy")
+}

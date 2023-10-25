@@ -3,8 +3,8 @@ import { InMemoryCheckInsRepositories } from '@/repositories/in-memory/in-memory
 import { CheckInUseCase } from './check-in'
 import { InMemoryGymsRepositories } from '@/repositories/in-memory/in-memory-gyms-repositories'
 import { Decimal } from '@prisma/client/runtime/library'
-import { MaxNumberOfCheckInsError } from './errors/max-number-off-check-ins-error'
-import { MaxDistanceError } from './errors/max-distance-error'
+import { MaxNumberOfCheckInsError } from '../errors/max-number-off-check-ins-error'
+import { MaxDistanceError } from '../errors/max-distance-error'
 
 let usersRepository: InMemoryCheckInsRepositories
 let gymsRepository: InMemoryGymsRepositories
