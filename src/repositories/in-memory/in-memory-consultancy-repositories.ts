@@ -5,6 +5,15 @@ import { randomUUID } from 'crypto'
 export class InMemoryConsultancyRepositories implements ConsultancyRepository {
   public items: Consultancy[] = []
 
+  async findById(id: string) {
+    const consultancy = this.items.find((item) => item.id === id)
+
+    if (!consultancy) {
+      return null
+    }
+    return consultancy
+  }
+
   async findByCode(code: string) {
     const consultancy = this.items.find((item) => item.code === code)
 

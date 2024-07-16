@@ -10,7 +10,7 @@ describe('Create Use Case', async () => {
     consultancyRepository = new InMemoryConsultancyRepositories()
     sut = new CreateConsultancyUseCase(consultancyRepository)
   })
-  it('should be able to create gym', async () => {
+  it('should be able to create consultancy', async () => {
     const { consultancy } = await sut.execute({
       id: '01',
       code: 'M3D1C',

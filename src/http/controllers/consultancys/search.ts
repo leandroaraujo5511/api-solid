@@ -9,11 +9,22 @@ export async function search(request: FastifyRequest, reply: FastifyReply) {
   const { q } = searchConsultancyQuerySchema.parse(request.query)
 
   const searchUseCase = makeSearchConsultancyUseCase()
-  const { consultancy } = await searchUseCase.execute({
-    query: q,
-  })
-
-  return reply.status(200).send({
-    consultancy,
-  })
+  try {
+    const result = await searchUseCase.execute({
+      query: q,
+    })
+    if (result.consultancy) {
+      return reply.status(200).send({
+        consultancy: result.consultancy,
+      })
+    } else {
+      return reply.status(404).send({
+        error: 'Consultancy not found',
+      })
+    }
+  } catch (error) {
+    return reply.status(400).send({
+      error,
+    })
+  }
 }
